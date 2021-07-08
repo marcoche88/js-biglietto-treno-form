@@ -80,7 +80,7 @@ button.addEventListener("click", function () {
     passName.innerHTML = userNameValue;
     discountElement.innerHTML = discount;
     car.innerHTML = Math.floor(Math.random() * 12) + 1;
-    trainCode.innerHTML = "9294";
+    trainCode.innerHTML = Math.floor(Math.random() * (10000 - 9000)) + 9000;
     ticketPrice.innerHTML = price;
 
     // visualizzare biglietto su pagina
