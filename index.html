@@ -10,7 +10,37 @@
 </head>
 
 <body>
+    <h2 class="mb-3">Inserisci i tuoi dati di viaggio:</h2>
+    <div class="mb-3">
+        <label for="name">Nome Passeggero: </label>
+        <input type="text" id="name">
+    </div>
+    <div class="mb-3">
+        <label for="km">Distanza percorso in Km: </label>
+        <input type="number" id="km" value="10" min="10" step="5">
+    </div>
+    <div class="mb-3">
+        <label for="age">Fascia d'età: </label>
+        <select id="age">
+            <option value="min">Minorenne (1-17)</option>
+            <option selected value="maj">Maggiorenne (18-65)</option>
+            <option value="over65">Over 65 anni</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <button type="button" id="button">Genera Biglietto</button>
+        <button type="button" id="reset-button">Resetta</button>
+    </div>
 
+    <hr class="mb-3">
+    <section id="ticket-section" class="hidden">
+        <h2 class="mb-3">Il tuo biglietto</h2>
+        <p><strong>Nome Passeggero: </strong><span id="pass-name" class="ticket-info"></span></p>
+        <p><strong>Offerta: </strong><span id="discount-element" class="ticket-info"></span></p>
+        <p><strong>Carrozza: </strong><span id="car" class="ticket-info"></span></p>
+        <p><strong>Codice Treno: </strong><span id="train-code" class="ticket-info"></span></p>
+        <p><strong>Prezzo del Biglietto: </strong><span id="ticket-price" class="ticket-info"></span></p>
+    </section>
     <script src="./js/script.js"></script>
 </body>
 
