@@ -116,3 +116,24 @@ button:active {
 .col .ticket-info {
     margin-top: 4em;
 }
+
+@media screen and (max-width: 900px) {
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-left {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .col-right {
+        flex-direction: column;
+    }
+
+    .col .ticket-info {
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+    }
+}
