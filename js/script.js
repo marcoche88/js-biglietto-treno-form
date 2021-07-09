@@ -31,7 +31,7 @@ Aggiungiamo una funzione che ci permetta di resettare i campi del form ai valori
 4- calcolare prezzo biglietto ordinario
 5- applicare sconto del 20% se minorenne o 40% se over65
 6- arrotondare prezzo finale del biglietto
-7- stampari dati su html
+7- stampare dati su html
 */
 
 // variabili riferimento form
@@ -40,6 +40,9 @@ var km = document.getElementById("km");
 var userAge = document.getElementById("age");
 var button = document.getElementById("button");
 var reset = document.getElementById("reset-button");
+
+// variabili alert
+var alert = document.getElementById("alert");
 
 // variabili riferimento biglietto
 var ticketSection = document.getElementById("ticket-section");
@@ -57,38 +60,49 @@ button.addEventListener("click", function () {
     var kmValue = km.value;
     var userAgeValue = userAge.value;
 
-    // calcolo prezzo biglietto ordinario
-    var price = kmValue * 0.21;
-    var discount = "Tariffa ordinaria";
+    // validazione dati input
+    if (!userNameValue || userNameValue.trim() === "" || !isNaN(userNameValue) || !kmValue || isNaN(kmValue) || parseInt(kmValue) < 10) {
+        alert.classList.remove("hidden");
+    } else {
 
-    // sconto 20% se minorenne
-    if (userAgeValue === "min") {
-        price *= 0.8;
-        discount = "Tariffa minori";
+        alert.classList.add("hidden");
+
+        // calcolo prezzo biglietto ordinario
+        var price = kmValue * 0.21;
+        var discount = "Tariffa ordinaria";
+
+        // sconto 20% se minorenne
+        if (userAgeValue === "min") {
+            price *= 0.8;
+            discount = "Tariffa minori";
+        }
+
+        // sconto 40% se over65
+        if (userAgeValue === "over65") {
+            price *= 0.6;
+            discount = "Tariffa Over65";
+        }
+
+        // arrotondamento a 2 cifre prezzo finale
+        price = "Euro " + price.toFixed(2);
+
+        // stampa dati su pagina HTML
+        passName.innerHTML = userNameValue.toUpperCase();
+        discountElement.innerHTML = discount;
+        car.innerHTML = Math.floor(Math.random() * 12) + 1;
+        trainCode.innerHTML = Math.floor(Math.random() * (100000 - 90000)) + 90000; //Math.floor(Math.random() * (max(escluso) - min)) + min
+        ticketPrice.innerHTML = price;
+
+        // visualizzare biglietto su pagina
+        ticketSection.classList.remove("hidden");
     }
-
-    // sconto 40% se over65
-    if (userAgeValue === "over65") {
-        price *= 0.6;
-        discount = "Tariffa Over65";
-    }
-
-    // arrotondamento a 2 cifre prezzo finale
-    price = "Euro " + price.toFixed(2);
-
-    // stampa dati su pagina HTML
-    passName.innerHTML = userNameValue;
-    discountElement.innerHTML = discount;
-    car.innerHTML = Math.floor(Math.random() * 12) + 1;
-    trainCode.innerHTML = Math.floor(Math.random() * (10000 - 9000)) + 9000;
-    ticketPrice.innerHTML = price;
-
-    // visualizzare biglietto su pagina
-    ticketSection.classList.remove("hidden");
 })
 
 // aggiungere evento al click di reset-button
 reset.addEventListener("click", function () {
+    // reset alert
+    alert.classList.add("hidden");
+
     // reset valori form
     userName.value = "";
     km.value = "10";
