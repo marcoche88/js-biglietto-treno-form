@@ -106,7 +106,7 @@ reset.addEventListener("click", function () {
     // reset valori form
     userName.value = "";
     km.value = "10";
-    userAge.value = "maj"
+    userAge.value = "maj";
 
     // reset valori biglietto
     var ticketElements = document.getElementsByClassName("ticket-info");
