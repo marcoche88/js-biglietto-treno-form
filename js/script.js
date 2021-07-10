@@ -43,6 +43,7 @@ var reset = document.getElementById("reset-button");
 
 // variabili alert
 var alert = document.getElementById("alert");
+var alertX = document.getElementById("alert-x");
 
 // variabili riferimento biglietto
 var ticketSection = document.getElementById("ticket-section");
@@ -100,7 +101,7 @@ button.addEventListener("click", function () {
 
 // aggiungere evento al click di reset-button
 reset.addEventListener("click", function () {
-    // reset alert
+    // nasconde alert
     alert.classList.add("hidden");
 
     // reset valori form
@@ -117,4 +118,10 @@ reset.addEventListener("click", function () {
 
     // nascondo biglietto svuotato da tutto
     ticketSection.classList.add("hidden");
+})
+
+// aggiungere evento al click della x
+alertX.addEventListener("click", function () {
+    // nasconde alert
+    alert.classList.add("hidden");
 })

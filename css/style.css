@@ -39,6 +39,17 @@ body {
     color: #842029;
     background-color: #f8d7da;
     border: 1px solid #f5c2c7;
+    position: relative;
+}
+
+#alert-x {
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
 }
 
 .container-top {
